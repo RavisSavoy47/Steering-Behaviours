@@ -10,7 +10,7 @@ void Agent::start()
 	Actor::start();
 
 	m_moveComp = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
-	m_moveComp->setMaxSpeed(10);
+	m_moveComp->setMaxSpeed(100);
 	m_spriteComp = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 	m_seekComp = dynamic_cast<SeekComponent*>(addComponent(new SeekComponent(m_target)));
 }

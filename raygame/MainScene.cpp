@@ -12,6 +12,6 @@ void MainScene::start()
     addActor(player);
 
     Agent* ai = new Agent(player, 50, 50, "Enemy");
-    ai->getTransform()->setForward({ 50,50 });
+    ai->getTransform()->setScale({ 50,50 });
     addActor(ai);
 }

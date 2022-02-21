@@ -15,24 +15,12 @@ public:
 
 	void update(float deltaTime) override;
 
-	/// <summary>
-	/// Get the maximum magnitude of this actors velocity vector
-	/// </summary>
-	/// <returns></returns>
-	float getMaxSpeed() { return m_maxSpeed; }
-
-	/// <summary>
-	/// Set the maximum magnitude of this actors velocity vector
-	/// </summary>
-	/// <returns></returns>
-	void setMaxSpeed(float maxSpeed) { m_maxSpeed = maxSpeed; }
-
 private:
 	Actor* m_target;
 	MathLibrary::Vector2 m_currentVelocity;
 	MathLibrary::Vector2 m_maxVelocity;
 	MathLibrary::Vector2 m_desiredVelocity;
 	MathLibrary::Vector2 m_steeringForce;
-	float m_maxSpeed;
+	float m_seekForce;
 };
 
