@@ -50,7 +50,7 @@ public:
     /// that matches the name
     /// </summary>
     /// <param name="name">The name of the component instance</param>
-    Component* getComponet(const char* componentName);
+    Component* getComponent(const char* componentName);
 
     /// <summary>
     /// Adds a component to th ened of the component array

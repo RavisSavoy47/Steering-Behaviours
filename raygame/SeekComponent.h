@@ -1,13 +1,15 @@
 #pragma once
 #include "Component.h"
 #include <Vector2.h>
+
+class MoveComponet;
 class SeekComponent :
 	public Component
 {
 public:
-	SeekComponent(Actor* target, const char* name = "SeekComponent") : Component::Component(name) {}
+	SeekComponent(Actor* target, const char* name = "SeekComponent");
 
-	Actor* setTarget(Actor* target) { m_target = target; }
+	void setTarget(Actor* target) { m_target = target; }
 
 	Actor* getTarget() { return m_target; }
 
