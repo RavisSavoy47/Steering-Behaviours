@@ -1,13 +1,11 @@
 #pragma once
 #include "Component.h"
 #include <Vector2.h>
-
-class MoveComponet;
-class SeekComponent :
+class FleeComponent :
 	public Component
 {
 public:
-	SeekComponent(Actor* target, const char* name = "SeekComponent");
+	FleeComponent(Actor* target, const char* name = "FleeComponent");
 
 	void setTarget(Actor* target) { m_target = target; }
 
@@ -20,6 +18,6 @@ private:
 	MathLibrary::Vector2 m_currentVelocity;
 	MathLibrary::Vector2 m_desiredVelocity;
 	MathLibrary::Vector2 m_steeringForce;
-	float m_seekForce;
+	float m_force;
 };
 
