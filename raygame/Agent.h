@@ -2,8 +2,8 @@
 #include "Actor.h"
 class MoveComponent;
 class SpriteComponent;
-class SeekComponent;
-class FleeComponent;
+class SeekBehaviour;
+class FleeBehaviour;
 class Player;
 class Agent :
 	public Actor
@@ -17,8 +17,8 @@ public:
 private:
 	MoveComponent* m_moveComp;
 	SpriteComponent* m_spriteComp;
-	SeekComponent* m_seekComp;
-	FleeComponent* m_fleeComp;
+	SeekBehaviour* m_seekComp;
+	FleeBehaviour* m_fleeComp;
 	Actor* m_target;
 };
 

@@ -1,11 +1,11 @@
 #pragma once
 #include "Component.h"
 #include <Vector2.h>
-class FleeComponent :
+class FleeBehaviour :
 	public Component
 {
 public:
-	FleeComponent(Actor* target, const char* name = "FleeComponent");
+	FleeBehaviour(Actor* target, const char* name = "FleeComponent");
 
 	void setTarget(Actor* target) { m_target = target; }
 

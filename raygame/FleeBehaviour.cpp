@@ -1,16 +1,16 @@
-#include "FleeComponent.h"
+#include "FleeBehaviour.h"
 #include "Transform2D.h"
 #include "Actor.h"
 #include "MoveComponent.h"
 #include <Vector2.h>
-FleeComponent::FleeComponent(Actor* target, const char* name)
+FleeBehaviour::FleeBehaviour(Actor* target, const char* name)
 {
 	m_target = target;
 	m_force = 150;
 	m_currentVelocity = MathLibrary::Vector2{ 0,0 };
 }
 
-void FleeComponent::update(float deltaTime)
+void FleeBehaviour::update(float deltaTime)
 {
 	//Add the new velocity to the old position to get the new position
 	m_desiredVelocity = MathLibrary::Vector2::normalize(getOwner()->getTransform()->getWorldPosition() - getTarget()->getTransform()->getWorldPosition()) * m_force;

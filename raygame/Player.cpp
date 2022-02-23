@@ -3,6 +3,7 @@
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
 #include "Transform2D.h"
+#include "Actor.h"
 
 void Player::start()
 {
@@ -25,5 +26,4 @@ void Player::update(float deltaTime)
 		getTransform()->setForward(m_moveComponent->getVelocity());
 
 	m_moveComponent->setVelocity(moveDirection * 1000);
-	
 }
