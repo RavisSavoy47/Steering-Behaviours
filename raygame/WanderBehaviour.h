@@ -5,17 +5,18 @@ class WanderBehaviour :
 	public Component
 {
 public:
-	WanderBehaviour(float radius, float distance);
-
-	void setRadius(float radius) { m_radius = radius; }
-	void setDistance(float distance) { m_distance = distance; }
+	WanderBehaviour() {};
+	WanderBehaviour(MoveComponent* moveComponenet, float force, float radius, float distance);
+	~WanderBehaviour() {};
 
 	void update(float deltaTime) override;
-
 private:
-	float m_radius;
-	float m_distance;
+	MoveComponent* m_moveComponent;
+	MathLibrary::Vector2 m_desiredVelocity;
+	MathLibrary::Vector2 m_steeringForce;
+	MathLibrary::Vector2 m_currentVelocity;
 	float m_force;
-	MathLibrary::Vector2 m_angle;
+	float m_radius;
+	float m_circleDistance;
 };
 
