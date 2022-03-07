@@ -20,6 +20,6 @@ private:
 	MathLibrary::Vector2 m_currentVelocity;
 	MathLibrary::Vector2 m_desiredVelocity;
 	MathLibrary::Vector2 m_steeringForce;
-	float m_seekForce;
+	float m_force;
 };
 
