@@ -27,5 +27,5 @@ void WanderBehaviour::update(float deltaTime)
 
 	getOwner()->getTransform()->setForward(m_circleDistance);
 
-
+	MoveComponent* moveComponent = dynamic_cast<MoveComponent*>(getOwner());
 }

@@ -4,6 +4,7 @@ class MoveComponent;
 class SpriteComponent;
 class SeekBehaviour;
 class FleeBehaviour;
+class WanderBehaviour;
 class Player;
 class Agent :
 	public Actor
@@ -19,6 +20,7 @@ private:
 	SpriteComponent* m_spriteComp;
 	SeekBehaviour* m_seekComp;
 	FleeBehaviour* m_fleeComp;
+	WanderBehaviour* m_wanderComp;
 	Actor* m_target;
 };
 
