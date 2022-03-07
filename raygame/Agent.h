@@ -1,11 +1,10 @@
 #pragma once
 #include "Actor.h"
+#include "DynamicArray.h"
+#include <Vector2.h>
+class SteeringComponent;
 class MoveComponent;
 class SpriteComponent;
-class SeekBehaviour;
-class FleeBehaviour;
-class WanderBehaviour;
-class Player;
 class Agent :
 	public Actor
 {
@@ -14,13 +13,17 @@ public:
 
 	void start() override;
 	void update(float deltaTime) override;
+	void onAddComponent(Component* component) override;
+	float getMaxForce() { return m_maxForce; }
+	void setMaxForce(float maxForce) { m_maxForce = maxForce; }
+	MoveComponent* getMoveComponent() { return m_moveComp; }
 
 private:
+	DynamicArray<SteeringComponent*> m_steeringComponents;
+	float m_maxForce;
 	MoveComponent* m_moveComp;
+	MathLibrary::Vector2 m_force;
 	SpriteComponent* m_spriteComp;
-	SeekBehaviour* m_seekComp;
-	FleeBehaviour* m_fleeComp;
-	WanderBehaviour* m_wanderComp;
 	Actor* m_target;
 };
 

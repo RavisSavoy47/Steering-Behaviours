@@ -182,6 +182,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SeekBehaviour.h" />
     <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="SteeringComponent.h" />
     <ClInclude Include="Transform2D.h" />
     <ClInclude Include="WanderBehaviour.h" />
   </ItemGroup>

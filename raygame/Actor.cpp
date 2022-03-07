@@ -57,7 +57,13 @@ Component* Actor::addComponent(Component* component)
     m_components = appendedArray;
     m_componentCount++;
 
+    onAddComponent(component);
+
     return component;
+}
+
+void Actor::onAddComponent(Component* component)
+{
 }
 
 bool Actor::removeComponent(Component* component)

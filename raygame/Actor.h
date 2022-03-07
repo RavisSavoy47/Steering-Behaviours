@@ -64,6 +64,11 @@ public:
     Component* addComponent(Component* component);
 
     /// <summary>
+    /// Called when a new component os added to the actor
+    /// </summary>
+    virtual void onAddComponent(Component* component);
+
+    /// <summary>
     /// Removes the first instance found that matches the component reference
     /// </summary>
     /// <param name="component">The component to remove from the array</param>
@@ -173,6 +178,8 @@ inline T* Actor::addComponent()
     //Set old array to hold the values of the new array
     m_components = appendedArray;
     m_componentCount++;
+
+    onAddComponent(component);
 
     return (T*)component;
 }
