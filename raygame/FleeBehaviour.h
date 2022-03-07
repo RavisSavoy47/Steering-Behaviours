@@ -5,7 +5,7 @@ class FleeBehaviour :
 	public Component
 {
 public:
-	FleeBehaviour(Actor* target, const char* name = "FleeComponent");
+	FleeBehaviour(Actor* target);
 
 	void setTarget(Actor* target) { m_target = target; }
 

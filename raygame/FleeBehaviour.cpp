@@ -3,7 +3,7 @@
 #include "Actor.h"
 #include "MoveComponent.h"
 #include <Vector2.h>
-FleeBehaviour::FleeBehaviour(Actor* target, const char* name)
+FleeBehaviour::FleeBehaviour(Actor* target)
 {
 	m_target = target;
 	m_force = 150;

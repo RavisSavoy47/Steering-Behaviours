@@ -4,7 +4,7 @@
 #include "MoveComponent.h"
 #include <Vector2.h>
 
-SeekBehaviour::SeekBehaviour(Actor* target, const char* name) : Component::Component(name)
+SeekBehaviour::SeekBehaviour(Actor* target) : Component::Component()
 {
 	m_target = target;
 	m_force = 150;
@@ -14,7 +14,7 @@ SeekBehaviour::SeekBehaviour(Actor* target, const char* name) : Component::Compo
 void SeekBehaviour::update(float deltaTime)
 {
 	//Add the new velocity to the old position to get the new position
-	m_desiredVelocity = MathLibrary::Vector2::normalize(getTarget()->getTransform()->getLocalPosition() - getOwner()->getTransform()->getWorldPosition()) * m_force;
+	m_desiredVelocity = MathLibrary::Vector2::normalize(getTarget()->getTransform()->getWorldPosition() - getOwner()->getTransform()->getWorldPosition()) * m_force;
 
 	m_steeringForce = m_desiredVelocity - m_currentVelocity;
 

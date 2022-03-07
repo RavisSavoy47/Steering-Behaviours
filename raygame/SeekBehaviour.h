@@ -7,7 +7,7 @@ class SeekBehaviour :
 	public Component
 {
 public:
-	SeekBehaviour(Actor* target, const char* name = "SeekComponent");
+	SeekBehaviour(Actor* target);
 
 	void setTarget(Actor* target) { m_target = target; }
 
