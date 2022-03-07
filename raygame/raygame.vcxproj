@@ -162,6 +162,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SeekBehaviour.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="SteeringComponent.cpp" />
     <ClCompile Include="Transform2D.cpp" />
     <ClCompile Include="WanderBehaviour.cpp" />
   </ItemGroup>
