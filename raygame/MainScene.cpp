@@ -15,7 +15,7 @@ void MainScene::start()
     Agent* ai = new Agent(player, 100, 100, "Enemy");
     ai->getTransform()->setScale({ 50,50 });
     ai->addComponent(new SpriteComponent("Images/enemy.png"));
-    ai->setMaxForce(50);
+    ai->setMaxForce(500);
     SeekBehaviour* comp = new SeekBehaviour();
     comp->setTarget(player);
     ai->addComponent(comp);

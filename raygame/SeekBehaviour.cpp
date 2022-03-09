@@ -10,6 +10,7 @@ MathLibrary::Vector2 SeekBehaviour::calculateForce()
 	if (!getTarget())
 		return { 0,0 };
 
+	setSteeringForce(1000);
 
 	MathLibrary::Vector2 directionToTarget = getTarget()->getTransform()->getWorldPosition() - getOwner()->getTransform()->getWorldPosition();
 

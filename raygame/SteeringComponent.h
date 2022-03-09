@@ -3,7 +3,6 @@
 #include "Agent.h"
 #include <Vector2.h>
 class Actor;
-class MoveComponent;
 
 class SteeringComponent :
 	public Component
@@ -20,16 +19,11 @@ public:
 	Actor* getTarget() { return m_target; }
 	void setTarget(Actor* target) { m_target = target; }
 
-	void start() override {};
-
-	MoveComponent* getMoveComponent() { return m_moveComp; }
-
 	Agent* getAgent() { return (Agent*)getOwner(); }
 	
 private:
 	Actor* m_target = nullptr;
 	float m_steeringForce;
-	MoveComponent* m_moveComp;
 
 };
 
