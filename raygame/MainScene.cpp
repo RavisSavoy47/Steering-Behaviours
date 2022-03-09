@@ -6,6 +6,7 @@
 #include "SeekBehaviour.h"
 #include "WanderBehaviour.h"
 #include "FleeBehaviour.h"
+#include "StateMachineComponent.h"
 
 void MainScene::start()
 {
@@ -17,10 +18,15 @@ void MainScene::start()
     Agent* ai = new Agent(player, 100, 100, "Enemy");
     ai->getTransform()->setScale({ 50,50 });
     ai->addComponent(new SpriteComponent("Images/enemy.png"));
-    WanderBehaviour* comp = new WanderBehaviour(100, 70, 500);
-    //comp->setTarget(player);
-    ai->setMaxForce(1000);
-    //comp->setSteeringForce(100);
-    ai->addComponent(comp);
+    ai->setMaxForce(200);
+
+    WanderBehaviour* wanderBehaviour = new WanderBehaviour(100, 150, 100);
+    ai->addComponent(wanderBehaviour);
+
+    SeekBehaviour* seekBehaviour = new SeekBehaviour();
+    seekBehaviour->setTarget(player);
+    ai->addComponent(seekBehaviour);
+    seekBehaviour->setSteeringForce(50);
+    ai->addComponent<StateMachineComponent>();
     addActor(ai);
 }

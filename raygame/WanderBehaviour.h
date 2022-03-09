@@ -4,6 +4,7 @@ class WanderBehaviour :
 	public SteeringComponent
 {
 public:
+	WanderBehaviour() {};
 	WanderBehaviour(float circleRadius, float circleDistance, float wanderForce);
 	MathLibrary::Vector2 calculateForce() override;
 
