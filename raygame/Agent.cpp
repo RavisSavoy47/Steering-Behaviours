@@ -9,6 +9,7 @@ void Agent::start()
 
 	m_moveComp = addComponent<MoveComponent>();
 	m_moveComp->setMaxSpeed(300);
+	m_moveComp->setUpdateFacing(true);
 	m_spriteComp = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 }
 

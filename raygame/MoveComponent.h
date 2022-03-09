@@ -32,6 +32,10 @@ public:
 	/// <returns></returns>
 	void setMaxSpeed(float maxSpeed) { m_maxSpeed = maxSpeed; }
 
+	void setUpdateFacing(float updateFacing) { m_updatingFacing = updateFacing; }
+
+	bool getUpdateFacing() { return m_updatingFacing; }
+
 	//Inherited from component class
 	void update(float deltaTime) override;
 private:
@@ -39,5 +43,6 @@ private:
 	MathLibrary::Vector2 m_moveDirection;
 	MathLibrary::Vector2 m_position;
 	float m_maxSpeed;
+	bool m_updatingFacing;
 };
 

@@ -1,20 +1,18 @@
 #pragma once
-#include "Component.h"
-#include <Vector2.h>
-class MoveComponent;
+#include "SteeringComponent.h"
 class WanderBehaviour :
-	public Component
+	public SteeringComponent
 {
 public:
-	WanderBehaviour() {};
-	WanderBehaviour(float radius, float distance);
-	~WanderBehaviour() {};
+	WanderBehaviour(float circleRadius, float circleDistance, float wanderForce);
+	MathLibrary::Vector2 calculateForce() override;
 
-	void update(float deltaTime) override;
 private:
-	float m_force;
-	float m_distance;
-	float m_circleRadius;
-	MathLibrary::Vector2 m_circleDistance;
+	float m_circleDistance = 0;
+	float m_circleRadius = 0;
+	float m_wanderAngle = 0;
+
+	MathLibrary::Vector2 m_target;
+	MathLibrary::Vector2 m_circlePos;
 };
 

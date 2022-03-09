@@ -8,6 +8,5 @@ class SeekBehaviour :
 {
 public:
 	MathLibrary::Vector2 calculateForce();
-
 };
 

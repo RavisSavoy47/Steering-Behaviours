@@ -1,31 +1,36 @@
 #include "WanderBehaviour.h"
-#include "MoveComponent.h"
 #include "Transform2D.h"
 #include "Actor.h"
-#include <cmath>
+#include "Agent.h"
+#include "MoveComponent.h"
+#include <time.h>
 
-WanderBehaviour::WanderBehaviour(float radius, float distance)
+WanderBehaviour::WanderBehaviour(float circleRadius, float circleDistance, float wanderForce) : SteeringComponent(nullptr, wanderForce)
 {
-	m_force = 150;
-	m_distance = distance;
-	m_circleRadius = radius;
-	m_circleDistance = MathLibrary::Vector2{ 0,0 };;
+	m_circleDistance = circleDistance;
+	m_circleRadius = circleRadius;
+	srand(time(NULL));
 }
 
-void WanderBehaviour::update(float deltaTime)
+MathLibrary::Vector2 WanderBehaviour::calculateForce()
 {
-	MathLibrary::Vector2 circlePos = getOwner()->getTransform()->getWorldPosition() + (getOwner()->getTransform()->getForward() * m_distance);
+	//Find the agents position and heading
+	MathLibrary::Vector2 ownerPosition = getOwner()->getTransform()->getWorldPosition();
+	MathLibrary::Vector2 heading = getAgent()->getMoveComponent()->getVelocity().getNormalized();
 
-	float randNum = (rand() % 400) - 200;
-	MathLibrary::Vector2 randPos = { cos(randNum), sin(randNum) };
+	//Find the circle position in front of the agent
+	m_circlePos = ownerPosition + (heading * m_circleDistance);
 
-	MathLibrary::Vector2 randomPnt = randPos.getNormalized() * m_circleRadius;
-	randomPnt = randomPnt + circlePos;
+	//Find a random vector on the circle
+	float randNum = (rand() % 201) - 100;
+	MathLibrary::Vector2 randDirection = MathLibrary::Vector2{ (float)cos(randNum), (float)sin(randNum) } * m_circleRadius;
 
-	MathLibrary::Vector2 circleOffest = (randomPnt - getOwner()->getTransform()->getWorldPosition()).getNormalized() * m_force;
-	m_circleDistance = circleOffest;
+	//Add the random vector to the circle position to get th erandom point on the circle
+	m_target = randDirection + m_circlePos;
 
-	getOwner()->getTransform()->setForward(m_circleDistance);
+	//Seek to the random point
+	MathLibrary::Vector2 desiredVeloccity = MathLibrary::Vector2::normalize(m_target - ownerPosition) * getSteeringForce();
+	MathLibrary::Vector2 force = desiredVeloccity - getAgent()->getMoveComponent()->getVelocity();
 
-	MoveComponent* moveComponent = dynamic_cast<MoveComponent*>(getOwner());
+	return force;
 }

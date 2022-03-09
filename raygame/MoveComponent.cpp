@@ -5,22 +5,27 @@
 
 void MoveComponent::update(float deltaTime)
 {
-	float xEnd = Engine::getScreenWidth() + 5;
-	float yEnd = Engine::getScreenHeight() + 5;
-
-	if (getOwner()->getTransform()->getWorldPosition().x > Engine::getScreenWidth() + 5)
-		getOwner()->getTransform()->setWorldPostion({ 0, getOwner()->getTransform()->getWorldPosition().y });
-	if (getOwner()->getTransform()->getWorldPosition().x < -10)
-		getOwner()->getTransform()->setWorldPostion({ xEnd, getOwner()->getTransform()->getWorldPosition().y });
-	if (getOwner()->getTransform()->getWorldPosition().y > Engine::getScreenHeight() + 5)
-		getOwner()->getTransform()->setWorldPostion({ getOwner()->getTransform()->getWorldPosition().x, -5 });
-	if (getOwner()->getTransform()->getWorldPosition().y < -10)
-		getOwner()->getTransform()->setWorldPostion({ getOwner()->getTransform()->getWorldPosition().x, yEnd });
 
 	//Add the new velocity to the old position to get the new position
 	MathLibrary::Vector2 newPosition = getOwner()->getTransform()->getLocalPosition() + getVelocity() * deltaTime;
 
-	MathLibrary::Vector2 forward = getOwner()->getTransform()->getForward();
+	if (getUpdateFacing() && getVelocity().getMagnitude() > 0)
+		getOwner()->getTransform()->setForward(getVelocity().getNormalized());
+
+	/// <summary>
+	/// teleports the player to the other side of the screen 
+	/// </summary>
+	/// <param name="deltaTime"></param>
+	if (newPosition.x > Engine::getScreenWidth())
+		newPosition.x = 0;
+	else if (newPosition.x < 0)
+		newPosition.x = Engine::getScreenWidth();
+
+	if (newPosition.y > Engine::getScreenWidth())
+		newPosition.y = 0;
+	else if (newPosition.y < 0)
+		newPosition.y = Engine::getScreenWidth();
+
 	//Set the actors position to be the new position found
 	getOwner()->getTransform()->setLocalPosition(newPosition);
 }
