@@ -68,9 +68,6 @@
     <ClCompile Include="WanderBehaviour.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="SteeringComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="StateMachineComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
