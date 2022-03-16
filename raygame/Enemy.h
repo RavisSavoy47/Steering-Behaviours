@@ -7,7 +7,7 @@ public:
 	Enemy(float x, float y, const char* name, float maxForce, float maxSpeed, Actor* target);
 	void start() override;
 
-	bool getTargetInRange();
+	bool getTargetInSight();
 
 	Actor* getTarget() { return m_target; }
 	void setTarget(Actor* target) { m_target = target; }

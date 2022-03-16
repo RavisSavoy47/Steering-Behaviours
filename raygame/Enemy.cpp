@@ -43,8 +43,10 @@ void Enemy::start()
     addComponent(seekBehaviour);
 }
 
-bool Enemy::getTargetInRange()
+bool Enemy::getTargetInSight()
 {
     float distance = (m_target->getTransform()->getWorldPosition() - getTransform()->getWorldPosition()).getMagnitude();
-    return distance <= 300;
+    MathLibrary::Vector2 direction = (m_target->getTransform()->getWorldPosition() - getTransform()->getWorldPosition()).getNormalized();
+
+    return distance <= 300 && acos(MathLibrary::Vector2::dotProduct(direction, getTransform()->getForward())) ;
 };
