@@ -9,6 +9,7 @@ class Agent :
 	public Actor
 {
 public:
+	Agent(float x, float y, const char* name, float maxForce, float maxSpeed);
 	Agent(Actor* target, float x, float y, const char* name) : Actor(x, y, name) { m_target = target; }
 
 	void start() override;

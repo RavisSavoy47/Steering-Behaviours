@@ -3,14 +3,18 @@
 #include "SteeringComponent.h"
 #include "SpriteComponent.h"
 
+Agent::Agent(float x, float y, const char* name, float maxForce, float maxSpeed):Actor(x, y, name)
+{
+	setMaxForce(maxForce);
+	m_moveComp = addComponent<MoveComponent>();
+	m_moveComp->setMaxSpeed(maxSpeed);
+}
+
 void Agent::start()
 {
 	Actor::start();
 
-	m_moveComp = addComponent<MoveComponent>();
-	m_moveComp->setMaxSpeed(500);
 	m_moveComp->setUpdateFacing(true);
-	m_spriteComp = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 }
 
 void Agent::update(float deltaTime)

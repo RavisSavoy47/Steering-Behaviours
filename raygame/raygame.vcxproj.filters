@@ -12,6 +12,9 @@
     <Filter Include="Source Files\Components">
       <UniqueIdentifier>{7876a8b5-d138-4b6f-a43a-3deb08b77249}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Decisions">
+      <UniqueIdentifier>{6eca0fea-8cb9-4fee-a93d-84557840a650}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -71,11 +74,32 @@
     <ClCompile Include="StateMachineComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Decision.cpp">
+    <ClCompile Include="Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InRangeDecision.cpp">
+      <Filter>Decisions</Filter>
+    </ClCompile>
+    <ClCompile Include="IsAggressiveDecision.cpp">
+      <Filter>Decisions</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleDecision.cpp">
+      <Filter>Decisions</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderDecision.cpp">
+      <Filter>Decisions</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekDecision.cpp">
+      <Filter>Decisions</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionComponent.cpp">
+      <Filter>Decisions</Filter>
+    </ClCompile>
+    <ClCompile Include="Decision.cpp">
+      <Filter>Decisions</Filter>
+    </ClCompile>
     <ClCompile Include="BooleanDecision.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Decisions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,11 +163,32 @@
     <ClInclude Include="StateMachineComponent.h">
       <Filter>Source Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Decision.h">
+    <ClInclude Include="Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="InRangeDecision.h">
+      <Filter>Decisions</Filter>
+    </ClInclude>
+    <ClInclude Include="IsAggressiveDecision.h">
+      <Filter>Decisions</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleDecision.h">
+      <Filter>Decisions</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderDecision.h">
+      <Filter>Decisions</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekDecision.h">
+      <Filter>Decisions</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionComponent.h">
+      <Filter>Decisions</Filter>
+    </ClInclude>
     <ClInclude Include="BooleanDecision.h">
-      <Filter>Header Files</Filter>
+      <Filter>Decisions</Filter>
+    </ClInclude>
+    <ClInclude Include="Decision.h">
+      <Filter>Decisions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
